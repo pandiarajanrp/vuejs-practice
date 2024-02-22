@@ -19,6 +19,17 @@
       Object conditional class binding
     </p>
     <p :class="isShort ? 'short' : 'non-short'">V bind Shorthand</p>
+    <h1>Conditional Rendering</h1>
+    <h4 v-if="num===0">Num is Zero</h4>
+    <h4 v-else-if="num > 0">Positive</h4>
+    <h4 v-else-if="num < 0">Negative</h4>
+    <h4 v-else>Not a Number</h4>
+    <h1>Conditional Rendering With Multiple Element</h1>
+    <template v-if="showConditions">
+      <p>Terms and conditions</p>
+      <p>Privacy Policy</p>
+      <p>Agree to Policy</p>
+    </template>
   </div>
 </template>
 
@@ -34,6 +45,8 @@ export default {
       isSoldOut: false,
       isNew: true,
       isShort: true,
+      num: 5,
+      showConditions: true
     };
   },
 };
@@ -60,5 +73,8 @@ export default {
 }
 .short {
   color: magenta;
+}
+h1 {
+  border: 1px solid #eee;
 }
 </style>

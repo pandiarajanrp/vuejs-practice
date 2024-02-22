@@ -1,22 +1,25 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <h2>{{ name }}</h2>
-  <div class="underline" v-bind:class="status">This is text</div>
-  <div v-bind:id="containerId">This is content container</div>
-  <p v-bind:class="isPromoted && 'promoted'">This is promoted content</p>
-  <p v-bind:class="isSoldOut ? 'soldout' : 'new'">Soldout Movie</p>
-  <p v-bind:class="[isPromoted && 'promoted', isSoldOut ? 'soldout' : 'new']">
-    Array Conditional Text
-  </p>
-  <p
-    v-bind:class="{
-      promoted: isPromoted,
-      soldout: isSoldOut,
-      new: isNew,
-    }"
-  >
-    Object conditional class binding
-  </p>
+  <div>
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <h2>{{ name }}</h2>
+    <div class="underline" v-bind:class="status">This is text</div>
+    <div v-bind:id="containerId">This is content container</div>
+    <p v-bind:class="isPromoted && 'promoted'">This is promoted content</p>
+    <p v-bind:class="isSoldOut ? 'soldout' : 'new'">Soldout Movie</p>
+    <p v-bind:class="[isPromoted && 'promoted', isSoldOut ? 'soldout' : 'new']">
+      Array Conditional Text
+    </p>
+    <p
+      v-bind:class="{
+        promoted: isPromoted,
+        soldout: isSoldOut,
+        new: isNew,
+      }"
+    >
+      Object conditional class binding
+    </p>
+    <p :class="isShort ? 'short' : 'non-short'">V bind Shorthand</p>
+  </div>
 </template>
 
 <script>
@@ -30,6 +33,7 @@ export default {
       isPromoted: true,
       isSoldOut: false,
       isNew: true,
+      isShort: true,
     };
   },
 };
@@ -53,5 +57,8 @@ export default {
 .new {
   color: green;
   font-weight: bold;
+}
+.short {
+  color: magenta;
 }
 </style>

@@ -50,6 +50,22 @@
     <template v-for="(info, key, index) in userInfo" :key="info">
       <p>{{ info }} {{ key }} {{ index }}</p>
     </template>
+
+    <h1>List - Conditional Rendering</h1>
+    <template v-for="(userName) in names" :key="userName">
+      <h4 v-if="userName === 'Pandi'"> {{ userName }}</h4>
+    </template>
+
+    <h1>Methods</h1>
+    <h4>Add - {{ add(2,10,25) }}</h4>
+    <h4>Multiply - {{ multiply(baseValue) }}</h4>
+
+    <h1>Event Handlers</h1>
+    <p>Name {{ name }}</p>
+    <button @click="changeName($event), increment(5, $event)">Change Name</button>
+    <p>{{ count }}</p>
+    <button v-on:click="count++">Increment By 1</button>
+    <button v-on:click="increment(5)">Increment By 5</button>
   </div>
 </template>
 
@@ -87,9 +103,36 @@ export default {
         fname: "Pandiarajan",
         lname: "Rajagopal",
         id: '29'
-      }
+      },
+      baseValue: 2,
+      baseMultiply: 5,
+      count: 0
     };
   },
+  methods: {
+    add(a, b, c) {
+      console.log(a, b, c)
+      return a + b + c;
+    },
+    multiply(num) {
+      return num * this.baseMultiply;
+    },
+    increment(num) {
+      this.count += num;
+    },
+    /**
+     * do not use arrow function in methods as its context changes to only methods
+     
+    multiply: (num) => {
+      return this.baseMultiply * num
+    }
+    this will break the js 
+    */
+    changeName(event) {
+      console.log('Event', event)
+      this.name = 'Vue Giant'
+    }
+  }
 };
 </script>
 

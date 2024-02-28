@@ -66,6 +66,19 @@
     <p>{{ count }}</p>
     <button v-on:click="count++">Increment By 1</button>
     <button v-on:click="increment(5)">Increment By 5</button>
+
+    <h1>Form Control</h1>
+    <h4>Preview</h4>
+    <pre>
+      {{ JSON.stringify(formData, null, 2) }}
+    </pre>
+    <form @submit="formSubmit">
+      <label for="name">Name</label>
+      <input type="text" id="name" v-model="formData.name" />
+      <label for="agree">Agree?</label>
+      <input type="checkbox" id="agree" v-model="formData.agree" true-value="yes" false-value="no">
+      <button type="submit">Submit</button>
+    </form>
   </div>
 </template>
 
@@ -106,12 +119,15 @@ export default {
       },
       baseValue: 2,
       baseMultiply: 5,
-      count: 0
+      count: 0,
+      formData: {
+        name: '',
+        agree: ''
+      }
     };
   },
   methods: {
     add(a, b, c) {
-      console.log(a, b, c)
       return a + b + c;
     },
     multiply(num) {
@@ -131,6 +147,10 @@ export default {
     changeName(event) {
       console.log('Event', event)
       this.name = 'Vue Giant'
+    },
+    formSubmit(event) {
+      event.preventDefault()
+      console.log('Form Values', this.formData.name)
     }
   }
 };

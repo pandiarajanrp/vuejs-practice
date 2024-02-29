@@ -79,6 +79,17 @@
       <input type="checkbox" id="agree" v-model="formData.agree" true-value="yes" false-value="no">
       <button type="submit">Submit</button>
     </form>
+
+    <h1>Form Control</h1>
+    <pre>
+      {{ JSON.stringify(modifiers, null, 2) }}
+    </pre>
+    <form @submit.prevent="formSubmit">
+      <label for="fname">Name</label>
+      <input type="text" id="fname" v-model.trim.lazy="modifiers.name" />
+      <label for="age">Age</label>
+      <input type="number" id="age" v-model.number="modifiers.age" @keyup.enter="formSubmit">
+    </form>
   </div>
 </template>
 
@@ -123,6 +134,10 @@ export default {
       formData: {
         name: '',
         agree: ''
+      },
+      modifiers: {
+        name: '',
+        age: null
       }
     };
   },

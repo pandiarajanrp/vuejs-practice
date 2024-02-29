@@ -90,6 +90,11 @@
       <label for="age">Age</label>
       <input type="number" id="age" v-model.number="modifiers.age" @keyup.enter="formSubmit">
     </form>
+
+    <h1>Bonus Directives - V-Once, V-Pre</h1>
+    <h2 v-once>{{ name }}</h2>
+    <button @click="name = 'Changed Name'">Change Name</button>
+    <h2 v-pre>{{ name }}</h2>
   </div>
 </template>
 

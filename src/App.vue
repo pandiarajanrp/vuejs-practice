@@ -24,7 +24,7 @@
     <p :class="isShort ? 'short' : 'non-short'">V bind Shorthand</p>
 
     <h1>Conditional Rendering</h1>
-    <h4 v-if="num===0">Num is Zero</h4>
+    <h4 v-if="num === 0">Num is Zero</h4>
     <h4 v-else-if="num > 0">Positive</h4>
     <h4 v-else-if="num < 0">Negative</h4>
     <h4 v-else>Not a Number</h4>
@@ -37,11 +37,15 @@
     </template>
 
     <h1>CR - V-Show</h1>
-    <p v-show="showUserName">This is username with display none prop on false</p>
+    <p v-show="showUserName">
+      This is username with display none prop on false
+    </p>
     <p v-if="showUserName">This is username with only render in dom if true</p>
 
     <h1>List - V-For</h1>
-    <h4 v-for="(userName, index) in names" :key="userName">{{ index }} {{ userName }}</h4>
+    <h4 v-for="(userName, index) in names" :key="userName">
+      {{ index }} {{ userName }}
+    </h4>
 
     <div v-for="user in users" :key="user.name">
       <h2>{{ user.name }}</h2>
@@ -52,17 +56,19 @@
     </template>
 
     <h1>List - Conditional Rendering</h1>
-    <template v-for="(userName) in names" :key="userName">
-      <h4 v-if="userName === 'Pandi'"> {{ userName }}</h4>
+    <template v-for="userName in names" :key="userName">
+      <h4 v-if="userName === 'Pandi'">{{ userName }}</h4>
     </template>
 
     <h1>Methods</h1>
-    <h4>Add - {{ add(2,10,25) }}</h4>
+    <h4>Add - {{ add(2, 10, 25) }}</h4>
     <h4>Multiply - {{ multiply(baseValue) }}</h4>
 
     <h1>Event Handlers</h1>
     <p>Name {{ name }}</p>
-    <button @click="changeName($event), increment(5, $event)">Change Name</button>
+    <button @click="changeName($event), increment(5, $event)">
+      Change Name
+    </button>
     <p>{{ count }}</p>
     <button v-on:click="count++">Increment By 1</button>
     <button v-on:click="increment(5)">Increment By 5</button>
@@ -76,7 +82,13 @@
       <label for="name">Name</label>
       <input type="text" id="name" v-model="formData.name" />
       <label for="agree">Agree?</label>
-      <input type="checkbox" id="agree" v-model="formData.agree" true-value="yes" false-value="no">
+      <input
+        type="checkbox"
+        id="agree"
+        v-model="formData.agree"
+        true-value="yes"
+        false-value="no"
+      />
       <button type="submit">Submit</button>
     </form>
 
@@ -88,13 +100,43 @@
       <label for="fname">Name</label>
       <input type="text" id="fname" v-model.trim.lazy="modifiers.name" />
       <label for="age">Age</label>
-      <input type="number" id="age" v-model.number="modifiers.age" @keyup.enter="formSubmit">
+      <input
+        type="number"
+        id="age"
+        v-model.number="modifiers.age"
+        @keyup.enter="formSubmit"
+      />
     </form>
 
     <h1>Bonus Directives - V-Once, V-Pre</h1>
     <h2 v-once>{{ name }}</h2>
     <button @click="name = 'Changed Name'">Change Name</button>
     <h2 v-pre>{{ name }}</h2>
+
+    <h1>Computed Properties</h1>
+    <pre>
+      computed: {
+        fullName() {
+          return `${this.userInfo.fname} ${this.userInfo.lname}`
+        }
+      }
+    </pre>
+    <h2>{{ fullName }}</h2>
+
+    <h1>Computed Properties - Filter</h1>
+    <pre>
+      {{ JSON.stringify(items, null, 2) }}
+    </pre>
+    <h2>Expensive Item</h2>
+    <ul>
+      <li v-for="item in expensiveItem" :key="item.id">
+        {{ item.name }} - {{ item.price }}
+      </li>
+    </ul>
+
+    <h1>Computed Setter</h1>
+    <h2>{{ computedSetter }}</h2>
+    <button @click="changeComputedSetter">Change Name(Computer Setter)</button>
   </div>
 </template>
 
@@ -113,37 +155,54 @@ export default {
       num: 5,
       showConditions: true,
       showUserName: true,
-      names: ['Pandi', 'Selvam', 'Mohammed'],
+      names: ["Brain", "Bruce", "Hary"],
       users: [
         {
           name: "Pandi",
-          technology: ["html", "nodejs", "react", "vue"]
+          technology: ["html", "nodejs", "react", "vue"],
         },
         {
           name: "Selvam",
-          technology: ["html", "nodejs", "react"]
+          technology: ["html", "nodejs", "react"],
         },
         {
           name: "Mohammed",
-          technology: ["html", "nodejs", "react"]
-        }
+          technology: ["html", "nodejs", "react"],
+        },
       ],
       userInfo: {
         fname: "Pandiarajan",
         lname: "Rajagopal",
-        id: '29'
+        id: "29",
       },
       baseValue: 2,
       baseMultiply: 5,
       count: 0,
       formData: {
-        name: '',
-        agree: ''
+        name: "",
+        agree: "",
       },
       modifiers: {
-        name: '',
-        age: null
-      }
+        name: "",
+        age: null,
+      },
+      items: [
+        {
+          id: 1,
+          name: "TV",
+          price: 100,
+        },
+        {
+          id: 2,
+          name: "AC",
+          price: 200,
+        },
+        {
+          id: 3,
+          name: "Fridge",
+          price: 300,
+        },
+      ],
     };
   },
   methods: {
@@ -165,14 +224,35 @@ export default {
     this will break the js 
     */
     changeName(event) {
-      console.log('Event', event)
-      this.name = 'Vue Giant'
+      console.log("Event", event);
+      this.name = "Vue Giant";
     },
     formSubmit(event) {
-      event.preventDefault()
-      console.log('Form Values', this.formData.name)
-    }
-  }
+      event.preventDefault();
+      console.log("Form Values", this.formData.name);
+    },
+    changeComputedSetter() {
+      this.computedSetter = "Welcome Nature";
+    },
+  },
+  computed: {
+    fullName() {
+      return `${this.userInfo.fname} ${this.userInfo.lname}`;
+    },
+    expensiveItem() {
+      return this.items.filter((i) => i.price > 100);
+    },
+    computedSetter: {
+      get() {
+        return `${this.userInfo.fname} ${this.userInfo.lname}`;
+      },
+      set(value) {
+        const [fname, lname] = value.split(" ");
+        this.userInfo.fname = fname;
+        this.userInfo.lname = lname;
+      },
+    },
+  },
 };
 </script>
 

@@ -154,12 +154,15 @@
     <GreetItem name="Bruce" heroName="Batman" />
     <GreetItem name="Clark" heroName="Superman" />
     <GreetItem :name="userInfo.fname" :hero-name="names[0]" />
-
+    
+    <h1>Component Props</h1>
+    <ArticleItem name="Future of AI" :likes="50" :is-published="true" />
   </div>
 </template>
 
 <script>
 import GreetItem from './components/Greet.vue';
+import ArticleItem from './components/Article.vue';
 
 export default {
   name: "App",
@@ -302,7 +305,8 @@ export default {
     },
   },
   components: {
-    GreetItem
+    GreetItem,
+    ArticleItem
   }
 };
 </script>

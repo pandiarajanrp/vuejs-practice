@@ -151,7 +151,10 @@
     <input type="text" v-model="movieInfo.name" />
 
     <h1>Component</h1>
-    <GreetItem />
+    <GreetItem name="Bruce" heroName="Batman" />
+    <GreetItem name="Clark" heroName="Superman" />
+    <GreetItem :name="userInfo.fname" :hero-name="names[0]" />
+
   </div>
 </template>
 

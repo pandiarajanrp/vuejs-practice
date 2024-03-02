@@ -1,11 +1,12 @@
 <template>
     <h2>
-        Welcome to Vue Js Learning
+        Welcome {{name}} a.k.a {{ heroName }}
     </h2>
 </template>
 
 <script>
     export default {
-        name: 'GreetItem'
+        name: 'GreetItem',
+        props: ['name', 'heroName']
     }
 </script>

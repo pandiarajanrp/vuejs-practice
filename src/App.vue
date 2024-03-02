@@ -137,10 +137,27 @@
     <h1>Computed Setter</h1>
     <h2>{{ computedSetter }}</h2>
     <button @click="changeComputedSetter">Change Name(Computer Setter)</button>
+
+    <h1>Watchers</h1>
+    <h2>Volume Range - 0 to 20</h2>
+    <h2>Current Volume - {{ volume }}</h2>
+    <button @click="volume += 2">Increase</button>
+    <button @click="volume -= 2">Decrese</button>
+    <p v-if="volumeAlert">{{ volumeAlert }}</p>
+
+    <h1>Deep Watchers</h1>
+    <input type="text" v-model.lazy="movie" />
+    <p>Movie Details</p>
+    <input type="text" v-model="movieInfo.name" />
+
+    <h1>Component</h1>
+    <GreetItem />
   </div>
 </template>
 
 <script>
+import GreetItem from './components/Greet.vue';
+
 export default {
   name: "App",
   data() {
@@ -203,6 +220,13 @@ export default {
           price: 300,
         },
       ],
+      volume: 0,
+      volumeAlert: "",
+      movie: "",
+      movieInfo: {
+        name: 'Batman',
+        year: 2005
+      }
     };
   },
   methods: {
@@ -253,6 +277,30 @@ export default {
       },
     },
   },
+  watch: {
+    volume(newValue) {
+      if (newValue > 16) {
+        this.volumeAlert = "Please reduce the volume it will hurt your ear";
+      } else {
+        this.volumeAlert = "";
+      }
+    },
+    movie: {
+      handler(newValue) {
+        console.log("new Movie", newValue);
+      },
+      immediate: true,
+    },
+    movieInfo: {
+      handler(newValue) {
+        console.log('Movie Info', newValue)
+      },
+      deep: true
+    },
+  },
+  components: {
+    GreetItem
+  }
 };
 </script>
 

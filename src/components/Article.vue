@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2>Article Info</h2>
+        <h2 v-bind="$attrs">Article Info</h2>
         <h4>{{ name }}</h4>
         <h4>Likes - {{ likes }}</h4>
         <h4>Published - {{ isPublished ? 'Yes' : 'No' }}</h4>
@@ -14,6 +14,7 @@
             name: String,
             likes: Number,
             isPublished: Boolean
-        }
+        },
+        inheritAttrs: false
     }
 </script>

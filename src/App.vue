@@ -157,6 +157,9 @@
     
     <h1>Component Props</h1>
     <ArticleItem name="Future of AI" :likes="50" :is-published="true" />
+
+    <h1>Component NonProps - $attr</h1>
+    <ArticleItem id="article-container" name="Attributes in vue" :likes="50" :is-published="true" />
   </div>
 </template>
 

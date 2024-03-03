@@ -160,12 +160,20 @@
 
     <h1>Component NonProps - $attr</h1>
     <ArticleItem id="article-container" name="Attributes in vue" :likes="50" :is-published="true" />
+
+    <h1>Provide & Inject</h1>
+    <ParentItem />
+
+    <h1>ComponentEvents</h1>
+    <ComponentEvents />
   </div>
 </template>
 
 <script>
 import GreetItem from './components/Greet.vue';
 import ArticleItem from './components/Article.vue';
+import ParentItem from './components/Parent.vue';
+import ComponentEvents from './components/ComponentEvents.vue';
 
 export default {
   name: "App",
@@ -309,7 +317,9 @@ export default {
   },
   components: {
     GreetItem,
-    ArticleItem
+    ArticleItem,
+    ParentItem,
+    ComponentEvents
   }
 };
 </script>

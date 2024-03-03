@@ -166,6 +166,9 @@
 
     <h1>ComponentEvents</h1>
     <ComponentEvents />
+
+    <h1>Custom Input</h1>
+    <InputItem v-model="customInput"/>
   </div>
 </template>
 
@@ -174,6 +177,7 @@ import GreetItem from './components/Greet.vue';
 import ArticleItem from './components/Article.vue';
 import ParentItem from './components/Parent.vue';
 import ComponentEvents from './components/ComponentEvents.vue';
+import InputItem from './components/Input.vue';
 
 export default {
   name: "App",
@@ -243,7 +247,8 @@ export default {
       movieInfo: {
         name: 'Batman',
         year: 2005
-      }
+      },
+      customInput: ''
     };
   },
   methods: {
@@ -319,7 +324,8 @@ export default {
     GreetItem,
     ArticleItem,
     ParentItem,
-    ComponentEvents
+    ComponentEvents,
+    InputItem
   }
 };
 </script>

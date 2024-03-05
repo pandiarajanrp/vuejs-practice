@@ -169,6 +169,8 @@
 
     <h1>Custom Input</h1>
     <InputItem v-model="customInput"/>
+
+    <!-- New Integration -->
   </div>
 </template>
 

@@ -170,6 +170,12 @@
     <h1>Custom Input</h1>
     <InputItem v-model="customInput"/>
 
+    <h1>Slots</h1>
+    <CardSlot></CardSlot>
+    <CardSlot>Welcome to Vue</CardSlot>
+    <CardSlot><h2>Welcome to Vue</h2></CardSlot>
+
+
     <!-- New Integration -->
   </div>
 </template>
@@ -180,6 +186,7 @@ import ArticleItem from './components/Article.vue';
 import ParentItem from './components/Parent.vue';
 import ComponentEvents from './components/ComponentEvents.vue';
 import InputItem from './components/Input.vue';
+import CardSlot from './components/Slot.vue';
 
 export default {
   name: "App",
@@ -327,7 +334,8 @@ export default {
     ArticleItem,
     ParentItem,
     ComponentEvents,
-    InputItem
+    InputItem,
+    CardSlot
   }
 };
 </script>

@@ -175,6 +175,13 @@
     <CardSlot>Welcome to Vue</CardSlot>
     <CardSlot><h2>Welcome to Vue</h2></CardSlot>
 
+    <h1>Named Slots</h1>
+    <CardSlot>
+      <template v-slot:header>Header</template>
+      <template v-slot:default>Content</template>
+      <template v-slot:footer>Footer</template>
+    </CardSlot>
+
 
     <!-- New Integration -->
   </div>

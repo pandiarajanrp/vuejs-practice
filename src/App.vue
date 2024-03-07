@@ -182,6 +182,12 @@
       <template v-slot:footer>Footer</template>
     </CardSlot>
 
+    <h1>Slots Props</h1>
+    <NameListVue>
+      <template v-slot:default="slotProps">
+        {{ slotProps.lastName }} {{ slotProps.firstName }}
+      </template>
+    </NameListVue>
 
     <!-- New Integration -->
   </div>
@@ -194,6 +200,7 @@ import ParentItem from './components/Parent.vue';
 import ComponentEvents from './components/ComponentEvents.vue';
 import InputItem from './components/Input.vue';
 import CardSlot from './components/Slot.vue';
+import NameListVue from './components/NameList.vue';
 
 export default {
   name: "App",
@@ -342,7 +349,8 @@ export default {
     ParentItem,
     ComponentEvents,
     InputItem,
-    CardSlot
+    CardSlot,
+    NameListVue
   }
 };
 </script>

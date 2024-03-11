@@ -194,6 +194,9 @@
     <ChildStyleVue></ChildStyleVue>
     <h4>This is h4 in App</h4>
     <CardSlot name="heading"><h4>This is slot h4</h4></CardSlot>
+
+    <h1>Dynamic Component</h1>
+    <DynamicComponentVue />
   </div>
 </template>
 
@@ -206,6 +209,7 @@ import InputItem from './components/Input.vue';
 import CardSlot from './components/Slot.vue';
 import NameListVue from './components/NameList.vue';
 import ChildStyleVue from './components/ChildStyle.vue';
+import DynamicComponentVue from './components/DynamicComponent.vue';
 
 export default {
   name: "App",
@@ -356,7 +360,8 @@ export default {
     InputItem,
     CardSlot,
     NameListVue,
-    ChildStyleVue
+    ChildStyleVue,
+    DynamicComponentVue
   }
 };
 </script>

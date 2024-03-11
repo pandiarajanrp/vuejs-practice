@@ -190,6 +190,10 @@
     </NameListVue>
 
     <!-- New Integration -->
+    <h1>Component Styles</h1>
+    <ChildStyleVue></ChildStyleVue>
+    <h4>This is h4 in App</h4>
+    <CardSlot name="heading"><h4>This is slot h4</h4></CardSlot>
   </div>
 </template>
 
@@ -201,6 +205,7 @@ import ComponentEvents from './components/ComponentEvents.vue';
 import InputItem from './components/Input.vue';
 import CardSlot from './components/Slot.vue';
 import NameListVue from './components/NameList.vue';
+import ChildStyleVue from './components/ChildStyle.vue';
 
 export default {
   name: "App",
@@ -350,7 +355,8 @@ export default {
     ComponentEvents,
     InputItem,
     CardSlot,
-    NameListVue
+    NameListVue,
+    ChildStyleVue
   }
 };
 </script>
@@ -379,5 +385,8 @@ export default {
 }
 h1 {
   border: 1px solid #eee;
+}
+h4 {
+  color: goldenrod;
 }
 </style>

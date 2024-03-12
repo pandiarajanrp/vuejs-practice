@@ -208,6 +208,9 @@
 
     <h1>Create Post</h1>
     <CreatePost />
+
+    <h1>Life Cycle</h1>
+    <ParentItem />
   </div>
 </template>
 

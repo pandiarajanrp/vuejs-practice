@@ -197,6 +197,11 @@
 
     <h1>Dynamic Component</h1>
     <DynamicComponentVue />
+
+    <h1>Teleport Component</h1>
+    <teleport to="#portal-root">
+      <TelePortModalVue />
+    </teleport>
   </div>
 </template>
 
@@ -210,6 +215,7 @@ import CardSlot from './components/Slot.vue';
 import NameListVue from './components/NameList.vue';
 import ChildStyleVue from './components/ChildStyle.vue';
 import DynamicComponentVue from './components/DynamicComponent.vue';
+import TelePortModalVue from './components/TelePortModal.vue';
 
 export default {
   name: "App",
@@ -361,7 +367,8 @@ export default {
     CardSlot,
     NameListVue,
     ChildStyleVue,
-    DynamicComponentVue
+    DynamicComponentVue,
+    TelePortModalVue
   }
 };
 </script>

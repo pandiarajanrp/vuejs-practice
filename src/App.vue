@@ -202,6 +202,9 @@
     <teleport to="#portal-root">
       <TelePortModalVue />
     </teleport>
+
+    <h1>HTTP</h1>
+    <PostList />
   </div>
 </template>
 
@@ -216,6 +219,7 @@ import NameListVue from './components/NameList.vue';
 import ChildStyleVue from './components/ChildStyle.vue';
 import DynamicComponentVue from './components/DynamicComponent.vue';
 import TelePortModalVue from './components/TelePortModal.vue';
+import PostList from './components/PostList.vue';
 
 export default {
   name: "App",
@@ -368,7 +372,8 @@ export default {
     NameListVue,
     ChildStyleVue,
     DynamicComponentVue,
-    TelePortModalVue
+    TelePortModalVue,
+    PostList,
   }
 };
 </script>

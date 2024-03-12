@@ -205,6 +205,9 @@
 
     <h1>HTTP</h1>
     <PostList />
+
+    <h1>Create Post</h1>
+    <CreatePost />
   </div>
 </template>
 
@@ -220,6 +223,7 @@ import ChildStyleVue from './components/ChildStyle.vue';
 import DynamicComponentVue from './components/DynamicComponent.vue';
 import TelePortModalVue from './components/TelePortModal.vue';
 import PostList from './components/PostList.vue';
+import CreatePost from './components/CreatePost.vue';
 
 export default {
   name: "App",
@@ -374,6 +378,7 @@ export default {
     DynamicComponentVue,
     TelePortModalVue,
     PostList,
+    CreatePost,
   }
 };
 </script>

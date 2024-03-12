@@ -1,6 +1,5 @@
 <template>
   <div>
-    <button @click="getPosts">List Posts</button>
     <div v-for="post in posts" :key="post.id">
         <h2>{{ post.title }}</h2>
     </div>
@@ -15,13 +14,16 @@ export default {
       posts: [],
     };
   },
+  created() {
+    this.getPosts()
+  },
   methods: {
     getPosts() {
       fetch("https://jsonplaceholder.typicode.com/posts")
         .then((res) => res.json())
         .then((res) => {
           console.log("posts response", res);
-          this.posts = res;
+          this.posts = res.slice(0,10);
         })
         .catch((err) => {
           console.log("Err:", err);

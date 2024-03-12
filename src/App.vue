@@ -211,6 +211,9 @@
 
     <h1>Life Cycle</h1>
     <ParentItem />
+
+    <h1>Template Ref</h1>
+    <TemplateRef />
   </div>
 </template>
 
@@ -227,6 +230,7 @@ import DynamicComponentVue from './components/DynamicComponent.vue';
 import TelePortModalVue from './components/TelePortModal.vue';
 import PostList from './components/PostList.vue';
 import CreatePost from './components/CreatePost.vue';
+import TemplateRef from './components/TemplateRef.vue';
 
 export default {
   name: "App",
@@ -382,6 +386,7 @@ export default {
     TelePortModalVue,
     PostList,
     CreatePost,
+    TemplateRef,
   }
 };
 </script>

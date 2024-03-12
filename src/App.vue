@@ -214,6 +214,9 @@
 
     <h1>Template Ref</h1>
     <TemplateRef />
+
+    <h1>Mixins</h1>
+    <MixinsVue />
   </div>
 </template>
 
@@ -231,6 +234,7 @@ import TelePortModalVue from './components/TelePortModal.vue';
 import PostList from './components/PostList.vue';
 import CreatePost from './components/CreatePost.vue';
 import TemplateRef from './components/TemplateRef.vue';
+import MixinsVue from './components/Mixins.vue';
 
 export default {
   name: "App",
@@ -387,6 +391,7 @@ export default {
     PostList,
     CreatePost,
     TemplateRef,
+    MixinsVue
   }
 };
 </script>

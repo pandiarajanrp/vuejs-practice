@@ -27,7 +27,20 @@
 </template>
 
 <script>
-import { ref, reactive, computed, watch, toRefs, provide } from "vue";
+import {
+  ref,
+  reactive,
+  computed,
+  watch,
+  toRefs,
+  provide,
+  onBeforeMount,
+  onMounted,
+  onBeforeUpdate,
+  onUpdated,
+  onBeforeUnmount,
+  onUnmounted,
+} from "vue";
 import ChildComp from "./components/composition/Child.vue";
 
 export default {
@@ -109,6 +122,26 @@ export default {
     function changeUserName() {
       (userInfo.firstName = "Pandiarajan"), (userInfo.lastName = "Rajagopal");
     }
+
+    // life cycle
+    onBeforeMount(() => {
+      console.log("Mount - Life Cycle Hooks");
+    });
+    onMounted(() => {
+      console.log("Mounted - Life Cycle Hooks");
+    });
+    onBeforeUpdate(() => {
+      console.log("Update - Life Cycle Hooks");
+    });
+    onUpdated(() => {
+      console.log("Updated - Life Cycle Hooks");
+    });
+    onBeforeUnmount(() => {
+      console.log("UnMount - Life Cycle Hooks");
+    });
+    onUnmounted(() => {
+      console.log("UnMounted - Life Cycle Hooks");
+    });
 
     return {
       name,

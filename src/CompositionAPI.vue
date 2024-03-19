@@ -23,6 +23,9 @@
 
     <h1>Provide Inject</h1>
     <ChildComp />
+
+    <h1>Template Refs</h1>
+    <input type="text" ref="inputRef" />
   </div>
 </template>
 
@@ -47,6 +50,8 @@ export default {
   name: "CompositionAPI",
   setup() {
     const name = ref("Pandiarajan");
+
+    const inputRef = ref(null);
 
     const state = reactive({
       city: "Chennai",
@@ -128,6 +133,8 @@ export default {
       console.log("Mount - Life Cycle Hooks");
     });
     onMounted(() => {
+      console.log("**** inputRef", inputRef);
+      inputRef.value.focus();
       console.log("Mounted - Life Cycle Hooks");
     });
     onBeforeUpdate(() => {
@@ -149,6 +156,7 @@ export default {
       changeState,
       changeUserName,
       computedFullname,
+      inputRef,
       ...toRefs(state),
       ...toRefs(userInfo),
     };

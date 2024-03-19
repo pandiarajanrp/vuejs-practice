@@ -26,6 +26,9 @@
 
     <h1>Template Refs</h1>
     <input type="text" ref="inputRef" />
+
+    <h1>Props and Events</h1>
+    <ParentComp />
   </div>
 </template>
 
@@ -45,6 +48,7 @@ import {
   onUnmounted,
 } from "vue";
 import ChildComp from "./components/composition/Child.vue";
+import ParentComp from "./components/composition/Parent.vue";
 
 export default {
   name: "CompositionAPI",
@@ -163,6 +167,7 @@ export default {
   },
   components: {
     ChildComp,
+    ParentComp,
   },
 };
 </script>
